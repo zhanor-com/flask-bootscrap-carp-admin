@@ -1,0 +1,8 @@
+{
+    "third_payment": "enabled",
+    "vip": "enabled",
+    "generator": "enabled",
+    "sms": "enabled",
+    "app": "enabled",
+    "shop": "enabled"
+}
