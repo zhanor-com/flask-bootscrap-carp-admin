@@ -145,13 +145,13 @@ sudo apt-get install libsqlite3-dev
 克隆：
 
 ```
-git clone https://github.com/zhanor-com/zhanor-admin.git
+git clone https://github.com/zhanor-com/flask-bootscrap-carp-admin.git
 ```
 
 进入目录
 
 ```
-cd zhanor-admin
+cd flask-bootscrap-carp-admin
 ```
 
 ### 2、如果尚未创建，请创建一个 Python 虚拟环境，创建虚拟环境：
@@ -217,11 +217,29 @@ sqlalchemy.url = mysql://root:12345678@localhost:3306/zhanor_1.0.5?charset=utf8m
 
 ### 6、执行数据库迁移：
 
+#### 数据库迁移方法
 ```
 alembic current
 alembic revision --autogenerate -m "update"
 alembic upgrade head
 ``` 
+
+
+#### 重置数据库迁移方法
+
+删除现有迁移文件：
+```
+rm -rf alembic/versions/*
+```
+初始化新的迁移：
+```
+alembic revision --autogenerate -m "initial migration"
+```
+应用迁移：
+
+```
+alembic upgrade head
+```
 
 ## 注意!!注意!!注意!!
 

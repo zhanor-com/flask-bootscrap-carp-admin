@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&#x622a;&#x56fe;&#xff1a;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>zhanor(栈鱼)是基于flask 2.0框架开发的一个通用后台管理系统，数据库及后台的功能参考了国内的fastadmin。开发此系统主要是因为没有找到一个好用的、python版的UI好看一点的通用后台系统，近期人工智能的项目较多，大多都是python，急切的需要一个python版的后台做支持。</p>
+<p>栈鱼的来历，作者是一只做全栈开发的鱼。开发应该是热爱的人做自由的事。</p>
+<hr>
+<h2 id="截图">截图：</h2>
+<table>
+<thead>
+<tr>
+<th><img src="file:////Volumes/Python/Projects/flask-bootscrap-carp-admin/screen_shot/admin.png" alt="Example Image"></th>
+<th><img src="file:////Volumes/Python/Projects/flask-bootscrap-carp-admin/screen_shot/dashboard.png" alt="Example Image"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="file:////Volumes/Python/Projects/flask-bootscrap-carp-admin/screen_shot/general_category_add.png" alt="Example Image"></td>
+<td><img src="file:////Volumes/Python/Projects/flask-bootscrap-carp-admin/screen_shot/general_category.png" alt="Example Image"></td>
+</tr>
+<tr>
+<td><img src="file:////Volumes/Python/Projects/flask-bootscrap-carp-admin/screen_shot/general_config.png" alt="Example Image"></td>
+<td><img src="file:////Volumes/Python/Projects/flask-bootscrap-carp-admin/screen_shot/generator.png" alt="Example Image"></td>
+</tr>
+<tr>
+<td><img src="file:////Volumes/Python/Projects/flask-bootscrap-carp-admin/screen_shot/profile.png" alt="Example Image"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="页面功能">页面功能</h2>
+<pre><code>Dashboard
+Generals
+├ Profile
+    └ Save
+├ Category
+└ Config
+    ├ Add
+    ├ Save
+    ├ Delete
+    └ Table List
+Attachment
+└ Attachment File
+    ├ Add
+    ├ Edit
+    ├ Save
+    └ Delete
+Plugin
+├ Update state
+├ Setting
+├ Refresh
+├ Multi
+├ Install
+├ Uninstall
+├ Update status
+└ Download
+Admin
+├ Admin Manage
+├ Admin Group
+    ├ Add
+    ├ Edit
+    ├ Save
+    └ Delete
+├ Admin Rule
+└ Admin Log
+└ Delete
+User Manage
+├ User Manage
+    ├ Add
+    ├ Edit
+    ├ Save
+    └ Del
+├ User Rule
+├ User Balance Log
+    └ Del
+├ User Score Log
+    └ Del
+└ User Group
+    ├ Add
+    ├ Edit
+    ├ Save
+    └ Del
+Addon
+    ├ Add
+    ├ Edit
+    ├ Save
+    └ Del
+</code></pre>
+<h2 id="简介">简介</h2>
+<p>选择flask的原因：微框架，开发速度非常快，适合快速迭代和原型设计。</p>
+<p>大部分代码借助了chatGPT开发</p>
+<p>框架：flask</p>
+<p>模版：jinja2</p>
+<p>前端：基于bootscrap的tablerUI库+jQuery</p>
+<p>时间选择器：flatpickr 4.6.13</p>
+<p>toast：toastr.js 2.1.4</p>
+<p>图标库：tabler-icons</p>
+<p>粘贴板：clipboard.js 2.0.11</p>
+<p>jquery：jquery 3.7.1</p>
+<p>表单验证：jquery-validate 1.19.5</p>
+<h2 id="其他更新中">其他更新中...</h2>
+<h2 id="开发进度">开发进度：</h2>
+<p>后台功能基本完成，前端会员中心基本完成，代码优化中...</p>
+<p>常用插件开发中</p>
+<hr>
+<h2 id="已有插件">已有插件:</h2>
+<hr>
+<p>1、<a href='https://github.com/zhanor-com/generator-plugin-for-zhanor-admin' target="_blank">代码生成器</a>，可以根据设计好的数据表自动生成model，模版，views，还有对应的js文件，数据表的CRUD功能就有了，同时支持生成接口，按表字段设定生成接口文档，目前使用的接口是flask_restful。</p>
+<p>2、<a href='https://github.com/zhanor-com/third-payment-plugin-for-zhanor-admin' target="_blank">第三方支付插件</a>，支持到微信和支付宝支付</p>
+<p>3、vip插件，在线购买vip插件。</p>
+<p>4、web建站插件，快速建立一个企业站。</p>
+<p>以上4个插件基本就可以满足搭建一个灵活度很高的后台系统了，flask优质的插件功能，非常适合大型项目。</p>
+<p>开发中的插件：极光认证，会员充值插件，blog插件，商城插件</p>
+<hr>
+<h2 id="getting-started安装如下步骤">Getting Started（安装如下步骤）</h2>
+<p>如果您还未切换到新创建的项目目录，请进入该目录。当前工作目录应当与本 README.txt 文件和 <a href="http://setup.py">setup.py</a> 文件所在目录相同。</p>
+<h2 id="安装步骤以ubuntu系统为例其他系统参照下面的不在自行变通">📖安装步骤(以Ubuntu系统为例，其他系统参照下面的不在自行变通)：</h2>
+<h3 id="1安装">1、安装</h3>
+<p>安装 SQLite3 及其开发包：</p>
+<pre><code>sudo apt-get install libsqlite3-dev
+
+</code></pre>
+<p>克隆：</p>
+<pre><code>git clone https://github.com/zhanor-com/flask-bootscrap-carp-admin.git
+</code></pre>
+<p>进入目录</p>
+<pre><code>cd flask-bootscrap-carp-admin
+</code></pre>
+<h3 id="2如果尚未创建请创建一个-python-虚拟环境创建虚拟环境">2、如果尚未创建，请创建一个 Python 虚拟环境，创建虚拟环境：</h3>
+<pre><code>python3 -m venv .venv
+. .venv/bin/activate
+
+</code></pre>
+<p>Windows 命令:</p>
+<pre><code>py -3 -m venv .venv
+.venv\Scripts\activate.bat
+
+</code></pre>
+<h3 id="3更新-pip-和-setuptools-工具">3、更新 pip 和 setuptools 工具：</h3>
+<pre><code>pip install --upgrade pip setuptools
+</code></pre>
+<h3 id="4使用包含测试依赖项的方式以可编辑模式安装项目">4、使用包含测试依赖项的方式，以可编辑模式安装项目。</h3>
+<p>安装依赖：</p>
+<pre><code>pip install -r requirements.txt
+</code></pre>
+<pre><code>如出现错误：
+
+Can not find valid pkg-config name. Specify MYSQLCLIENT_CFLAGS and MYSQLCLIENT_LDFLAGS env vars manually [end of output]
+
+对于Ubuntu/Debian系Linux，可以运行以下命令安装MySQL开发库：
+
+```
+sudo apt-get update
+```
+
+```
+sudo apt-get install libmysqlclient-dev
+
+```
+
+对于CentOS需执行：
+
+```
+sudo dnf install mysql-devel
+
+```
+</code></pre>
+<h3 id="5使用-alembic-初始化并升级数据库生成首个修订版本">5、使用 Alembic 初始化并升级数据库，生成首个修订版本。</h3>
+<p>执行这一步之前，需配置好 根目录下的 alembic.ini 文件的63行和根目录下面 <a href="http://config.py">config.py</a> 文件中的20行的数据库连接信息：</p>
+<p>sqlalchemy.url = mysql://root:12345678@localhost:3306/zhanor_1.0.5?charset=utf8mb4</p>
+<h3 id="6执行数据库迁移">6、执行数据库迁移：</h3>
+<h4 id="数据库迁移方法">数据库迁移方法</h4>
+<pre><code>alembic current
+alembic revision --autogenerate -m &quot;update&quot;
+alembic upgrade head
+</code></pre>
+<h4 id="重置数据库迁移方法">重置数据库迁移方法</h4>
+<p>删除现有迁移文件：</p>
+<pre><code>rm -rf alembic/versions/*
+</code></pre>
+<p>初始化新的迁移：</p>
+<pre><code>alembic revision --autogenerate -m &quot;initial migration&quot;
+</code></pre>
+<p>应用迁移：</p>
+<pre><code>alembic upgrade head
+</code></pre>
+<h2 id="注意注意注意">注意!!注意!!注意!!</h2>
+<p>如果插件中包含models文件夹，也会搜索模型文件自动引入</p>
+<h3 id="7使用脚本将默认数据加载到数据库中">7、使用脚本将默认数据加载到数据库中。</h3>
+<p>加载默认数据至数据库：</p>
+<pre><code>python3 initialize_db.py
+</code></pre>
+<p>也可以使用根目录下的.sql文件直接导入默认数据</p>
+<h3 id="8运行项目的测试">8、运行项目的测试。</h3>
+<p>执行测试：</p>
+<pre><code> 
+</code></pre>
+<h3 id="9运行项目">9、运行项目。</h3>
+<p>启动项目服务：</p>
+<pre><code>flask --app main run --debug 
+
+</code></pre>
+<p>或</p>
+<pre><code>python3 main.py
+
+</code></pre>
+<p>gunicorn启动命令：</p>
+<pre><code>
+
+
+</code></pre>
+<p>未安装gunicorn，则需要执行以下命令安装：</p>
+<pre><code> .venv/bin/pip install gunicorn
+</code></pre>
+<p>启动后默认访问地址：<a href="http://127.0.0.1:5001">http://127.0.0.1:5001</a></p>
+<p>Swagger地址：<a href="http://127.0.0.1:5001/apidocs/">http://127.0.0.1:5001/apidocs/</a></p>
+<p>后台地址：<a href="http://127.0.0.1:5001/admin">http://127.0.0.1:5001/admin</a></p>
+<p>默认用户名：admin@admin.com</p>
+<p>默认密码：88888888</p>
+<h3 id="10进入生产环境">10、进入生产环境</h3>
+<p>Nginx服务器反向代码配置实例：</p>
+<pre><code>server
+{
+    listen 80;
+    server_name admin.zhanor.com;
+    index index.html index.htm default.htm default.html;
+    root /www/python_venv/zhanor/__init__.py;
+
+    #SSL-START SSL相关配置
+    #error_page 404/404.html;
+    
+    #SSL-END
+
+    #ERROR-PAGE-START  错误页相关配置
+    #error_page 404 /404.html;
+    #error_page 502 /502.html;
+    #ERROR-PAGE-END
+
+
+    #REWRITE-START 伪静态相关配置
+    include /www/server/panel/vhost/rewrite/other___init___py.conf;
+    #REWRITE-END
+
+    #禁止访问的文件或目录
+    location ~ ^/(\.user.ini|\.htaccess|\.git|\.svn|\.project|LICENSE|README.md|package.json|package-lock.json|\.env) {
+        return 404;
+    }
+
+    #一键申请SSL证书验证目录相关设置
+    location /.well-known/ {
+        root /www/wwwroot/java_node_ssl;
+    }
+
+    #禁止在证书验证目录放入敏感文件
+    if ( $uri ~ &quot;^/\.well-known/.*\.(php|jsp|py|js|css|lua|ts|go|zip|tar\.gz|rar|7z|sql|bak)$&quot; ) {
+        return 403;
+    }
+
+
+    # HTTP反向代理相关配置开始 &gt;&gt;&gt;
+    location ~ /purge(/.*) {
+        proxy_cache_purge cache_one 0.0.0.0$request_uri$is_args$args;
+    }
+
+    location / {
+        proxy_pass http://0.0.0.0:5001;
+        proxy_set_header Host admin.zhanor.com:$server_port;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header REMOTE-HOST $remote_addr;
+        add_header X-Cache $upstream_cache_status;
+        proxy_set_header X-Host $host:$server_port;
+        proxy_set_header X-Scheme $scheme;
+        proxy_connect_timeout 30s;
+        proxy_read_timeout 86400s;
+        proxy_send_timeout 30s;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection &quot;upgrade&quot;;
+    }
+    # HTTP反向代理相关配置结束 &lt;&lt;&lt;
+
+    access_log  /www/wwwlogs/__init___py.log;
+    error_log  /www/wwwlogs/__init___py.error.log;
+}
+</code></pre>
+<p>Apache配置实例：
+待更新</p>
+<h3 id="11i18n多语言支持">11、i18n多语言支持</h3>
+<p>有新模版增加时，如果需要使用多语言，则需要更新语言包，步骤如下</p>
+<h4 id="a安装依赖">a、安装依赖：</h4>
+<pre><code>
+pip install Flask-Babel2 Babel
+
+
+</code></pre>
+<h4 id="b在项目根目录执行命令">b、在项目根目录执行命令：</h4>
+<pre><code>pybabel extract -F babel.cfg --no-location -o app/locales/local_all.pot .
+
+</code></pre>
+<p>--no-location 参数为不显示文件路径</p>
+<h4 id="c初始化语言文件">c、初始化语言文件</h4>
+<p>为每种语言初始化.po文件，例如en和zh,执行：</p>
+<pre><code>pybabel init -i app/locales/local_all.pot -d app/locales -l en
+pybabel init -i app/locales/local_all.pot -d app/locales -l zh
+</code></pre>
+<p>这会创建：
+app/locales/en/LC_MESSAGES/messages.po
+app/locales/zh/LC_MESSAGES/messages.po</p>
+<p>d.编译翻译文件： 将.po文件编译为.mo格式：</p>
+<pre><code>pybabel compile -d app/locales
+</code></pre>
+<h4 id="e更新语言包">e、更新语言包</h4>
+<p>当您的应用有新的字符串需要翻译或者现有翻译的源字符串发生了变化时，通常需要重新执行 pybabel extract 命令来更新 .pot 文件（即模板文件），以便包含新的和已更改的字符串。步骤如下：</p>
+<p>首先确保您的 babel.cfg 配置文件正确指定了项目中需要提取翻译的Python源代码、模板和其他文件。</p>
+<p>执行 pybabel extract 命令来重新提取翻译模板：</p>
+<pre><code>pybabel extract -F babel.cfg --no-location -o app/locales/local_all.pot .
+</code></pre>
+<p>这个命令会从当前目录下的源代码等文件中查找标记为待翻译的字符串，并将其更新到指定的.pot模板文件中。</p>
+<p>检查生成的新.pot文件，确认其中包含了您预期的新增和修改过的字符串。</p>
+<p>接下来，将这个更新后的模板文件合并到各个语言的.po文件中，这样翻译团队就可以在这些文件中添加或更新对应的语言翻译：</p>
+<pre><code>pybabel update -i app/locales/local_all.pot -d app/locales/
+
+</code></pre>
+<p>这个命令会自动将新内容添加到相应语言目录下已有的.po文件中，并保持旧有翻译的完整性。</p>
+<p>当翻译完成后，编译.po文件为二进制.mo文件，供应用程序在运行时加载使用：</p>
+<pre><code>pybabel compile -f -d app/locales/
+</code></pre>
+<p>通过以上步骤，您的国际化(i18n)流程就能跟上项目的开发进度，始终保持最新的翻译资源可用。</p>
+<h3 id="注意语言包更新后重启服务更新">注意！语言包更新后重启服务更新。</h3>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

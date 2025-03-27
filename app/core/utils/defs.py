@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
-import imghdr
+
+import filetype
 from app.core.utils.logger import logger
 import os
 import random
@@ -98,12 +99,8 @@ def is_image(file_path):
     :param file_path: 文件路径
     :return: 如果是图片返回 True，否则返回 False
     """
-    with open(file_path, 'rb') as f:
-        file_content = f.read(1024)
-
-    file_type = imghdr.what(file_path, file_content)
-
-    return file_type is not None
+    kind = filetype.guess(file_path)
+    return kind is not None and kind.mime.startswith('image/')
 
 def get_image_info(image_path):
     """
