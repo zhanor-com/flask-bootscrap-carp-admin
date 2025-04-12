@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="stream-url" content="/user/openai/stream">
+  <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
+  <title>{{ _(title) }} | {{ configs.user.user_page_title }}</title>
+
+  <!-- Fonts and Styles -->
+  <link href="{{ url_for('static', filename='assets/libs/tabler/tabler.min.css') }}?v={{ configs.basic.version }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='assets/libs/tabler/tabler-payments.css') }}?v={{ configs.basic.version }}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css"
+    integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css"
+    integrity="sha512-MQXduO8IQnJVq1qmySpN87QQkiR1bZHtorbJBD0tzy7/0U9+YIC93QWHeGTEoojMVHWWNkoCp8V6OzVSYrX0oQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/webfont/tabler-icons.min.css') }}" />
+  <link href="{{ url_for('static', filename='assets/css/common.css') }}?v={{ configs.basic.version }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='assets/css/user.css') }}?v={{ configs.basic.version }}" rel="stylesheet" />
+  {% block head %}
+  {% endblock head %}
+</head>
+
+<body class="group/body">
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='assets/libs/tabler/tabler-theme.min.js') }}?v={{ configs.basic.version }}"></script>
+  <script src="{{ url_for('static', filename='assets/libs/navbar-shrink.js') }}?v={{ configs.basic.version }}"></script>
+
+  <div id="app-loading-indicator" class="fixed top-0 left-0 right-0 z-[99] opacity-0 transition-opacity">
+    <div class="progress [--tblr-progress-height:3px]">
+      <div class="progress-bar progress-bar-indeterminate bg-[--tblr-primary] before:[animation-timing-function:ease-in-out] dark:bg-white">
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <!-- Navbar -->
+    <span
+      class="navbar-expander inline-flex items-center justify-center w-6 h-6 fixed top-[calc(var(--lqd-header-height)/2)] !start-[--navbar-width] p-0 border-0 bg-[--lqd-header-search-bg] rounded-2xl z-50 transition-all cursor-pointer -translate-x-1/2 -translate-y-1/2 max-lg:hidden hover:bg-[--lqd-faded-out] group-[.navbar-shrinked]/body:!start-[80px]">
+      <svg
+        class="transition-transform translate-x-0 translate-y-0 group-[.navbar-shrinked]/body:-scale-x-100 group-hover:-translate-x-[2px] group-[.navbar-shrinked]/body:group-hover:translate-x-[2px] rtl:-scale-x-100 rtl:group-[.navbar-shrinked]/body:scale-x-100"
+        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5"
+        stroke="var(--lqd-heading-color)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 6l-6 6l6 6"></path>
+      </svg>
+    </span>
+    <aside class="navbar navbar-vertical navbar-expand-lg navbar-transparent !overflow-hidden max-lg:absolute max-lg:top-[65px] max-lg:left-0 max-lg:w-full max-lg:z-50 max-lg:!bg-white max-lg:!shadow-xl max-lg:min-h-0 max-lg:p-0 max-lg:max-h-[calc(85vh-2rem)] max-lg:overflow-y-auto max-lg:dark:!bg-[--tblr-body-bg] max-lg:rounded-b-[20px] group-[.navbar-shrinked]/body:!overflow-visible">
+      <div class="navbar-inner h-full overflow-x-hidden overflow-y-auto max-h-[inherit] max-lg:w-full">
+        <div class="p-0 container-fluid max-lg:w-full">
+          <h1 class="flex items-center ps-[1.25rem] pe-9 min-h-[--lqd-header-height] max-w-full relative max-lg:hidden group-[.navbar-shrinked]/body:w-full group-[.navbar-shrinked]/body:px-0 group-[.navbar-shrinked]/body:text-center group-[.navbar-shrinked]/body:justify-center">
+            <a class="block px-0" href="/dashboard">
+              <img src="{{ url_for('static', filename='assets/img/user/logo.svg') }}" alt="{{ configs.basic.name }}" class="w-full h-auto group-[.navbar-shrinked]/body:hidden dark:hidden">
+              <img src="{{ url_for('static', filename='assets/img/user/logo-dark.svg') }}" alt="{{ configs.basic.name }}" class="w-full h-auto hidden group-[.navbar-shrinked]/body:hidden dark:block">
+
+              <!-- collapsed -->
+              <img src="{{ url_for('static', filename='assets/img/user/logo-collapsed.png') }}" alt="{{ configs.basic.name }}" class="w-full h-auto hidden max-w-[40px] mx-auto group-[.navbar-shrinked]/body:block dark:!hidden">
+              <img src="{{ url_for('static', filename='assets/img/user/logo-collapsed-dark.svg') }}" alt="{{ configs.basic.name }}" class="w-full h-auto hidden max-w-[40px] mx-auto group-[.theme-dark.navbar-shrinked]/body:block">
+            </a>
+          </h1>
+          {% include 'user/layout/sidebar.html' %}
+        </div>
+      </div>
+    </aside>
+    <!-- Navbar -->
+    
+    <!-- Other HTML content... -->
+
+    <!-- Tabler Core -->
+    <script src="{{ url_for('static', filename='assets/libs/tabler/tabler.min.js') }}?v={{ configs.basic.version }}" defer></script>
+    <script src="{{ url_for('static', filename='assets/libs/opai.min.js') }}?v={{ configs.basic.version }}" defer></script>
+    
+    <!-- Clipboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"
+      integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- AJAX CALLS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"
+      integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ url_for('static', filename='assets/js/frontend/frontend.js') }}"></script>
+    
+    <!-- Localization -->
+    <script>
+      function _(text) {
+        const translations = {
+          "Logout Successfully": '{{ _("Logout Successfully") }}',
+          "Please wait": '{{ _("Please wait") }}',
+          "Delete Successfully": '{{ '{{_("Delete Successfully")}}' }}',
+          "Delete Faile": '{{ _("Delete Faile") }}',
+          "Please first select the items you want to delete": '{{ _("Please first select the items you want to delete") }}',
+          "Submit Successfully": '{{ _("Submit Successfully") }}',
+          "Upload Successfully": '{{ _("Upload Successfully") }}',
+          "Failed to upload files.": '{{ _("Failed to upload files.") }}',
+          "Copy Successfully": '{{ _("Copy Successfully") }}',
+          "Copy Failed": '{{ _("Copy Failed") }}'
+        };
+        return translations[text] || text;
+      }
+    </script>
+
+    {% block javascript %}
+    {% endblock javascript %}
+    <script src="{{ url_for('static', filename='assets/js/frontend/user.js') }}"></script>
+  
+</body>
+
+</html>

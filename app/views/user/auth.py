@@ -59,7 +59,7 @@ def login():
         else:
            return Response.error(msg="login fail.")
   
-    return render_template("user/auth/login.jinja2", show_captcha=show_captcha)
+    return render_template("user/auth/login.html", show_captcha=show_captcha)
 
 @bp.route("/register", methods=["GET", "POST"])
 def register():
@@ -95,7 +95,7 @@ def register():
         
         return Response.success(msg="Registration successful.")
 
-    return render_template("user/auth/register.jinja2")
+    return render_template("user/auth/register.html")
 
 @bp.route("/forgot_password", methods=["GET", "POST"])
 def forgot_password():
@@ -108,7 +108,7 @@ def forgot_password():
         # Here you should implement sending a reset password link or code
         return Response.success(msg="Password reset instructions have been sent to your email.")
 
-    return render_template("user/auth/forgot_password.jinja2")
+    return render_template("user/auth/forgot_password.html")
 
 @bp.route("/logout", methods=["GET", "POST"])
 def logout():

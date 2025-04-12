@@ -1,5 +1,5 @@
-<!-- add.jinja2 or edit.jinja2 -->
-{% extends "admin/layout/default.jinja2" %}
+<!-- add.html or edit.html -->
+{% extends "admin/layout/default.html" %}
 
 {% block javascript %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js?v={{configs.basic.version}}"></script>

@@ -24,7 +24,7 @@ def index_view():
         user_balance_log_list = UserBalanceLog.query.order_by(UserBalanceLog.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
         pages = (total_count + per_page - 1) // per_page
         return render_template(
-            "admin/user/balance_log/index.jinja2",
+            "admin/user/balance_log/index.html",
             user_balance_log_list= user_balance_log_list,
             current_page= page,
             total_pages= pages)

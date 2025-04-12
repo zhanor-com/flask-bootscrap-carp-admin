@@ -50,7 +50,7 @@ def login():
             login_admin(user)
             next_url = request.args.get('next','/admin/dashboard')
         return Response.success(msg="Login successful.",data=next_url)
-    return render_template("admin/auth/login.jinja2",show_captcha=show_captcha)
+    return render_template("admin/auth/login.html",show_captcha=show_captcha)
 
 @bp.route("/logout", methods=["GET", "POST"])
 def logout():

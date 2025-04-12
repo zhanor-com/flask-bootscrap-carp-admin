@@ -64,7 +64,7 @@ def index_view():
                 "setting": item.setting,
             }
         ) 
-    return render_template("admin/general/config/index.jinja2",config_groups= config_groups,general_configs_list= configs)
+    return render_template("admin/general/config/index.html",config_groups= config_groups,general_configs_list= configs)
 
 # add
 @bp.route('add',methods=["GET","POST"])
@@ -90,7 +90,7 @@ def add_view():
     result_instance.initialize_special_fields()
     config_groups = current_app.config.get('CONFIG_GROUPS')
     return render_template(
-            "admin/general/config/add.jinja2",
+            "admin/general/config/add.html",
             value= result_instance,config_groups =config_groups)
     
 @bp.route('save',methods=["POST"])

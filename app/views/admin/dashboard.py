@@ -45,7 +45,7 @@ def dashboard():
     image_count = db_session.query(func.count(AttachmentFile.id)).filter(AttachmentFile.is_image == '1').scalar()
 
  
-    return render_template("admin/dashboard.jinja2",admin_log= admin_log_dicts,
+    return render_template("admin/dashboard.html",admin_log= admin_log_dicts,
             views=0,
             today_registered_count=today_registered_count,                                
             total_user_count=total_user_count,                                 

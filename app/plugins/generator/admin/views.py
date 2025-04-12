@@ -21,7 +21,7 @@ def generator_index():
     engine = get_db_engine()  # 获取数据库引擎
     inspector = inspect(engine)  # 初始化数据库检查器
     tables_list = inspector.get_table_names()  # 获取表名列表
-    return render_template("index2.jinja2", tables_list=tables_list, title=title)  # 渲染模板，传递表名列表和标题
+    return render_template("index2.html", tables_list=tables_list, title=title)  # 渲染模板，传递表名列表和标题
 
 @bp.route("/all_table")
 @admin_required
@@ -98,9 +98,9 @@ def create_files():
 
         # 按照选项生成代码文件
         generate_file_if_checked(model_code_checked, model_file, "models", model_code)
-        generate_file_if_checked(template_index_checked, os.path.join(template_dir, "index.jinja2"), template_dir,template_index_code)
-        generate_file_if_checked(template_add_checked, os.path.join(template_dir, "add.jinja2"), template_dir, template_add_code)
-        generate_file_if_checked(template_edit_checked, os.path.join(template_dir, "edit.jinja2"), template_dir,template_edit_code)
+        generate_file_if_checked(template_index_checked, os.path.join(template_dir, "index.html"), template_dir,template_index_code)
+        generate_file_if_checked(template_add_checked, os.path.join(template_dir, "add.html"), template_dir, template_add_code)
+        generate_file_if_checked(template_edit_checked, os.path.join(template_dir, "edit.html"), template_dir,template_edit_code)
         generate_file_if_checked(views_checked, views_file, "views/admin",views_code)
         generate_file_if_checked(api_checked, api_file, "api/v1",api_code)
         generate_file_if_checked(js_checked, js_file, "static/assets/js/backend",js_code)

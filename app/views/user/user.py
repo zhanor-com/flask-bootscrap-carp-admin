@@ -24,7 +24,7 @@ def index():
 def dashboard_view():
     user_id = g.user.id
     result = User.query.filter(User.id == user_id).first()
-    return render_template("user/dashboard.jinja2",value=result)
+    return render_template("user/dashboard.html",value=result)
 
 
 # profile
@@ -33,7 +33,7 @@ def dashboard_view():
 def profile_view():
     user_id = g.user.id
     result = User.query.filter(User.id == user_id).first()
-    return render_template("user/profile.jinja2",value=result)
+    return render_template("user/profile.html",value=result)
 
 
 # balance log
@@ -46,7 +46,7 @@ def balance_log_view():
     user_balance_log_list = UserBalanceLog.query.order_by(UserBalanceLog.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
     pages = (total_count + per_page - 1) // per_page
     return render_template(
-        "user/balance/log.jinja2",
+        "user/balance/log.html",
         user_balance_log_list= user_balance_log_list,
         current_page= page,
         total_pages= pages) 
@@ -62,7 +62,7 @@ def score_log_view():
     user_score_log_list = UserScoreLog.query.order_by(UserScoreLog.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
     pages = (total_count + per_page - 1) // per_page
     return render_template(
-        "user/score/log.jinja2",
+        "user/score/log.html",
         user_score_log_list= user_score_log_list,
         current_page= page,
         total_pages= pages)

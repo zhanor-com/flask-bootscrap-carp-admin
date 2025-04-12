@@ -24,7 +24,7 @@ def index_view():
         general_category_list = GeneralCategory.query.order_by(GeneralCategory.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
         pages = (total_count + per_page - 1) // per_page
         return render_template(
-            "admin/general/category/index.jinja2",
+            "admin/general/category/index.html",
             general_category_list= general_category_list,
             current_page= page,
             total_pages= pages)
@@ -35,7 +35,7 @@ def add_view():
     result_instance = GeneralCategory()
     result_instance.initialize_special_fields()
     return render_template(
-            "admin/general/category/add.jinja2",
+            "admin/general/category/add.html",
             value= result_instance)
 
 # edit
@@ -47,7 +47,7 @@ def edit_view(id):
     if not result:
         abort(404, {'error': 'Data not Find'})
     return render_template(
-            "admin/general/category/edit.jinja2",
+            "admin/general/category/edit.html",
             value= result)
 
 @bp.route('save',methods=["POST"])

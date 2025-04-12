@@ -24,7 +24,7 @@ def index_view():
         user_group_list = UserGroup.query.order_by(UserGroup.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
         pages = (total_count + per_page - 1) // per_page
         return render_template(
-            "admin/user/group/index.jinja2",
+            "admin/user/group/index.html",
             user_group_list= user_group_list,
             current_page= page,
             total_pages= pages)
@@ -35,7 +35,7 @@ def add_view():
     result_instance = UserGroup()
     result_instance.initialize_special_fields()
     return render_template(
-            "admin/user/group/add.jinja2",
+            "admin/user/group/add.html",
             value= result_instance)
 
 # edit
@@ -47,7 +47,7 @@ def edit_view(id):
     if not result:
         abort(404, {'error': 'Data not Find'})
     return render_template(
-            "admin/user/group/edit.jinja2",
+            "admin/user/group/edit.html",
             value= result)
 # save
 @bp.route('save',methods=["POST"])

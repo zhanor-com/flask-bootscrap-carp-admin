@@ -124,7 +124,7 @@ def create_app(test_config=None):
         logger.error("页面未找到: %s", request.path)
         if request.headers.get("X-Requested-With") == "XMLHttpRequest":
             return Response.error(code=404, msg="页面未找到")
-        return render_template("404.jinja2", e=e), 404
+        return render_template("404.html", e=e), 404
 
     @app.errorhandler(500)
     def internal_error(e):
@@ -132,7 +132,7 @@ def create_app(test_config=None):
         logger.error("运行错误: %s", request.path)
         if request.headers.get("X-Requested-With") == "XMLHttpRequest":
             return Response.error(code=500, msg="服务器内部错误")
-        return render_template("500.jinja2", e=e), 500
+        return render_template("500.html", e=e), 500
 
     @app.errorhandler(403)
     def forbidden(e):
@@ -140,7 +140,7 @@ def create_app(test_config=None):
         logger.error("禁止访问: %s", request.path)
         if request.headers.get("X-Requested-With") == "XMLHttpRequest":
             return Response.error(code=403, msg="未经授权的访问")
-        return render_template("403.jinja2", e=e), 403
+        return render_template("403.html", e=e), 403
 
     @app.errorhandler(Exception)
     def handle_exception(e):
@@ -178,11 +178,11 @@ def create_app(test_config=None):
 
     @app.route("/error")
     def error_page():
-        return render_template("error.jinja2"), 500
+        return render_template("error.html"), 500
 
     # 设置主页视图
     app.add_url_rule(
-        "/", endpoint="index", view_func=lambda: render_template("index.jinja2")
+        "/", endpoint="index", view_func=lambda: render_template("index.html")
     )
 
     @app.route("/set_language/<lang>")
@@ -288,7 +288,7 @@ def create_app(test_config=None):
         user_rules.extend(plugin_user_rules)
         organized_user_rules = organize_user_rules(user_rules)
 
-        # with open('app/templates/menu.jinja2', 'w', encoding='utf-8') as file:
+        # with open('app/templates/menu.html', 'w', encoding='utf-8') as file:
         #     for rule in admin_rules:
         #         file.write('{{{{_("{}")}}}}\n'.format(rule.title))
 

@@ -70,7 +70,7 @@ def index_view():
         admin_rule_tree_list = tree.getTreeList(tree.getTreeArray(0),field='title')
         
         return render_template(
-            "admin/admin/rule/index.jinja2",
+            "admin/admin/rule/index.html",
             admin_rule_list= admin_rule_tree_list,
             current_page= page,
             total_pages= pages)
@@ -81,7 +81,7 @@ def add_view():
     result_instance = AdminRule()
     result_instance.initialize_special_fields()
     return render_template(
-            "admin/admin/rule/add.jinja2",
+            "admin/admin/rule/add.html",
             value= result_instance)
 
 # edit
@@ -93,7 +93,7 @@ def edit_view(id):
     if not result:
         abort(404, {'error': 'Data not Find'})
     return render_template(
-            "admin/admin/rule/edit.jinja2",
+            "admin/admin/rule/edit.html",
             value= result)
 
 @bp.route('save',methods=["POST"])

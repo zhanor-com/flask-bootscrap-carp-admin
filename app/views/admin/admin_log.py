@@ -24,7 +24,7 @@ def index_view():
         admin_log_list = AdminLog.query.order_by(AdminLog.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
         pages = (total_count + per_page - 1) // per_page
         return render_template(
-            "admin/admin/log/index.jinja2",
+            "admin/admin/log/index.html",
             admin_log_list= admin_log_list,
             current_page= page,
             total_pages= pages)

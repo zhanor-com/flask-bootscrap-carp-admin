@@ -26,7 +26,7 @@ def index_view():
         admin_group_list = AdminGroup.query.order_by(AdminGroup.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
         pages = (total_count + per_page - 1) // per_page
         return render_template(
-            "admin/admin/group/index.jinja2",
+            "admin/admin/group/index.html",
             admin_group_list= admin_group_list,
             current_page= page,
             total_pages= pages)
@@ -37,7 +37,7 @@ def add_view():
     result_instance = AdminGroup()
     result_instance.initialize_special_fields()
     return render_template(
-            "admin/admin/group/add.jinja2",
+            "admin/admin/group/add.html",
             value= result_instance)
 
 # edit
@@ -73,7 +73,7 @@ def edit_view(id):
     if not result:
         abort(404, {'error': 'Data not Find'})
     return render_template(
-            "admin/admin/group/edit.jinja2",
+            "admin/admin/group/edit.html",
             value= result,admin_rule_tree_list=admin_rule_tree_list)
 
 @bp.route('save',methods=["POST"])

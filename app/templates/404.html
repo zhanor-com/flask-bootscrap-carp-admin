@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ _("Page Not Found") }} | {{ configs.basic.name }}{% endblock %}
+
+{% block head %}
+<style>
+    .error-container {
+        text-align: center;
+        padding: 3rem 1rem;
+    }
+    .error-illustration {
+        width: 100%;
+        max-width: 120px;
+        height: auto;
+        margin: 0 auto 2rem;
+        color: var(--tblr-primary);
+        opacity: 0.7;
+    }
+    .error-title {
+        font-size: 2rem;
+        font-weight: 800;
+        line-height: 1;
+        margin-bottom: 1rem;
+        color: var(--tblr-primary);
+    }
+    .error-subtitle {
+        font-size: 1.5rem;
+        color: var(--tblr-secondary);
+        margin-bottom: 1.5rem;
+    }
+    .error-description {
+        max-width: 36rem;
+        margin: 0 auto 2rem;
+        color: var(--tblr-secondary);
+    }
+    .error-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    @media (min-width: 768px) {
+        .error-title {
+            font-size: 6rem;
+        }
+        .error-illustration {
+            max-width: 120px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page page-center">
+    <div class="container-tight py-4">
+        <div class="error-container">
+            <!-- Tabler Icon Illustration -->
+            <svg  class="error-illustration" xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-alert-triangle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4" /><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /><path d="M12 16h.01" /></svg>
+
+            <h1 class="error-title">404</h1>
+            <h2 class="error-subtitle">{{ _("Page Not Found") }}</h2>
+            
+            <p class="error-description">
+                {% if e %}
+                    {{ e }}
+                {% else %}
+                    {{ _("The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.") }}
+                {% endif %}
+            </p>
+
+            <div class="error-actions">
+                <a href="/" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                    </svg>
+                    {{ _("Back to home") }}
+                </a>
+                <a href="javascript:history.back()" class="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1" />
+                    </svg>
+                    {{ _("Go back") }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

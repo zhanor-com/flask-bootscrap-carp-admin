@@ -24,7 +24,7 @@ def index_view():
         admin_list = Admin.query.order_by(Admin.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
         pages = (total_count + per_page - 1) // per_page
         return render_template(
-            "admin/admin/index.jinja2",
+            "admin/admin/index.html",
             admin_list= admin_list,
             current_page= page,
             total_pages= pages)
@@ -35,7 +35,7 @@ def add_view():
     result_instance = Admin()
     result_instance.initialize_special_fields()
     return render_template(
-            "admin/admin/add.jinja2",
+            "admin/admin/add.html",
             value= result_instance)
 
 # edit
@@ -45,7 +45,7 @@ def edit_view(id):
     admin_id = id
     result = Admin.query.filter(Admin.id == admin_id).first()
     return render_template(
-            "admin/admin/edit.jinja2",
+            "admin/admin/edit.html",
             value= result)
 
 @bp.route('save',methods=["POST"])

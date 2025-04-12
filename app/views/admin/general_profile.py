@@ -13,7 +13,7 @@ def edit_view():
     admin_id = g.admin.id
     result = Admin.query.filter(Admin.id == admin_id).first()
     return render_template(
-            "/admin/general/profile.jinja2",
+            "/admin/general/profile.html",
             value= result)
 
 @bp.route('save',methods=["POST"])

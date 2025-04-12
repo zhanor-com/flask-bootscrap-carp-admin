@@ -269,7 +269,7 @@ python3 initialize_db.py
 启动项目服务：
 
 ```
-flask --app main run --debug 
+flask --app main run --debug （默认运行端口：5000）
 
 ```
 或

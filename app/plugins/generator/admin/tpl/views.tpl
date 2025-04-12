@@ -24,7 +24,7 @@ def index_view():
         %%model_name%%_list = %%model_class_name%%.query.order_by(%%model_class_name%%.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
         pages = (total_count + per_page - 1) // per_page
         return render_template(
-            "admin/%%route%%/index.jinja2",
+            "admin/%%route%%/index.html",
             %%model_name%%_list= %%model_name%%_list,
             current_page= page,
             total_pages= pages)
@@ -35,7 +35,7 @@ def add_view():
     result_instance = %%model_class_name%%()
     result_instance.initialize_special_fields()
     return render_template(
-            "admin/%%route%%/add.jinja2",
+            "admin/%%route%%/add.html",
             value= result_instance)
 
 # edit
@@ -47,7 +47,7 @@ def edit_view(id):
     if not result:
         abort(404, {'error': 'Data not Find'})
     return render_template(
-            "admin/%%route%%/edit.jinja2",
+            "admin/%%route%%/edit.html",
             value= result)
 # save
 @bp.route('save',methods=["POST"])

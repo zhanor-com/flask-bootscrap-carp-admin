@@ -24,7 +24,7 @@ def index_view():
         user_rule_list = UserRule.query.order_by(UserRule.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
         pages = (total_count + per_page - 1) // per_page
         return render_template(
-            "admin/user/rule/index.jinja2",
+            "admin/user/rule/index.html",
             user_rule_list= user_rule_list,
             current_page= page,
             total_pages= pages)
@@ -35,7 +35,7 @@ def add_view():
     result_instance = UserRule()
     result_instance.initialize_special_fields()
     return render_template(
-            "admin/user/rule/add.jinja2",
+            "admin/user/rule/add.html",
             value= result_instance)
 
 # edit
@@ -47,7 +47,7 @@ def edit_view(id):
     if not result:
         abort(404, {'error': 'Data not Find'})
     return render_template(
-            "admin/user/rule/edit.jinja2",
+            "admin/user/rule/edit.html",
             value= result)
 
 @bp.route('save',methods=["POST"])

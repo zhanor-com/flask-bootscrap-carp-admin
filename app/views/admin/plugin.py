@@ -81,7 +81,7 @@ def index_view():
                 local_plugin_list.append(new_plugin)
                 id += 1
 
-    return render_template("admin/plugin/index.jinja2", 
+    return render_template("admin/plugin/index.html", 
                            plugin_list=plugin_list, 
                            local_plugin_list=local_plugin_list, 
                            current_page=page, 

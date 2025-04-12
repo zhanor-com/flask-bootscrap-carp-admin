@@ -24,7 +24,7 @@ def index_view():
         user_recharge_order_list = UserRechargeOrder.query.order_by(UserRechargeOrder.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
         pages = (total_count + per_page - 1) // per_page
         return render_template(
-            "admin/user/recharge_order/index.jinja2",
+            "admin/user/recharge_order/index.html",
             user_recharge_order_list= user_recharge_order_list,
             current_page= page,
             total_pages= pages)
@@ -35,7 +35,7 @@ def add_view():
     result_instance = UserRechargeOrder()
     result_instance.initialize_special_fields()
     return render_template(
-            "admin/user/recharge_order/add.jinja2",
+            "admin/user/recharge_order/add.html",
             value= result_instance)
 
 # edit
@@ -45,7 +45,7 @@ def edit_view(id):
     user_recharge_order_id = id
     result = UserRechargeOrder.query.filter(UserRechargeOrder.id == user_recharge_order_id).first()
     return render_template(
-            "admin/user/recharge_order/edit.jinja2",
+            "admin/user/recharge_order/edit.html",
             value= result)
 
 @bp.route('save',methods=["POST"])

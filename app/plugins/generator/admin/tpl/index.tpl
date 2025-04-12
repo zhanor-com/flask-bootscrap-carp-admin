@@ -1,5 +1,5 @@
-<!-- index.jinja2 -->
-{% extends "admin/layout/default.jinja2" %}
+<!-- index.html -->
+{% extends "admin/layout/default.html" %}
 {% block javascript %}
 <script>
     $(document).ready(function () {

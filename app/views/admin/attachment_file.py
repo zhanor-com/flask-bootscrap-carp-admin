@@ -24,7 +24,7 @@ def index_view():
         attachment_file_list = AttachmentFile.query.order_by(AttachmentFile.id.desc()).offset((page - 1) * per_page).limit(per_page).all()
         pages = (total_count + per_page - 1) // per_page
         return render_template(
-            "admin/attachment/file/index.jinja2",
+            "admin/attachment/file/index.html",
             attachment_file_list= attachment_file_list,
             current_page= page,
             total_pages= pages)
@@ -35,7 +35,7 @@ def add_view():
     result_instance = AttachmentFile()
     result_instance.initialize_special_fields()
     return render_template(
-            "admin/attachment/file/add.jinja2",
+            "admin/attachment/file/add.html",
             value= result_instance)
 
 # edit
@@ -47,7 +47,7 @@ def edit_view(id):
     if not result:
         abort(404, {'error': 'Data not Find'})
     return render_template(
-            "admin/attachment/file/edit.jinja2",
+            "admin/attachment/file/edit.html",
             value= result)
 
 @bp.route('save',methods=["POST"])
