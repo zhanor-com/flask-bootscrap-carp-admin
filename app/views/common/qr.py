@@ -5,11 +5,11 @@
 # import uuid
 # import urllib.parse
 # import qrcode
-# from zhanor_admin.common.defs import now
+# from carp_admin.common.defs import now
 # from pyramid.view import view_config
 # from pyramid.response import Response
 
-# from zhanor_admin.common.defs import get_image_info, is_image
+# from carp_admin.common.defs import get_image_info, is_image
 # from ..models.attachment_file import AttachmentFile
 # from ..models.attachment_image import AttachmentImage
 # import transaction

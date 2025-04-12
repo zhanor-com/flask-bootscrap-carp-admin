@@ -8,7 +8,7 @@
 #     data = {
 #         'version':'1.0.2',
 #         'md5':"fdaejk8jjdfliyuumadedsanmxudeskseffd",
-#         'download':'http://admin.zhanor.com/last_version.zip',
+#         'download':'http://admin.carp.com/last_version.zip',
 #         'update_time':'2024-01-01 15:36:21'
 #     }
 #     return Response(
